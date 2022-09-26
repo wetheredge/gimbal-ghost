@@ -1,6 +1,7 @@
-name: Pull Request Lint, Typecheck, & Build
+name: Lint, Typecheck, & Build
 
 on:
+  push:
   pull_request:
     branches: ['main']
 
