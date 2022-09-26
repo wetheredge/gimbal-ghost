@@ -25,9 +25,16 @@ jobs:
           cache: npm
 
       - name: NPM Install
-        run: npm install
+        run: npm clean-install
 
-      - name: Lint, Typecheck, & Build (npm run build)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run build
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: node scripts/build.mjs
+
+      - name: Package
+        run: npx electron-builder
