@@ -49,12 +49,14 @@ jobs:
 
       - name: Upload Linux binary
         uses: actions/upload-artifact@v3
+        if: ${{ contains(matrix.os, 'ubuntu') }}
         with:
           name: linux-binary
           path: '*.AppImage'
 
       - name: Upload Windows binary
         uses: actions/upload-artifact@v3
+        if: ${{ contains(matrix.os, 'windows') }}
         with:
           name: windows-binary
           path: '*.exe'
