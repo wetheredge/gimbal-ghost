@@ -38,3 +38,10 @@ jobs:
 
       - name: Package
         run: npx electron-builder
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: |
+            releases/GimbalGhost.*
+            releases/latest*.yml
