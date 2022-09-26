@@ -39,9 +39,22 @@ jobs:
       - name: Package
         run: npx electron-builder --publish never
 
-      - name: Upload artifacts
+      - name: Upload update files
         uses: actions/upload-artifact@v3
         with:
+          name: update-files
           path: |
-            releases/GimbalGhost.*
             releases/latest*.yml
+            *.exe.blockmap
+
+      - name: Upload Linux binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-binary
+          path: '*.AppImage'
+
+      - name: Upload Windows binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-binary
+          path: '*.exe'
