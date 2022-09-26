@@ -47,6 +47,8 @@ jobs:
             releases/latest*.yml
             *.exe.blockmap
 
+      - run: mv releases/*.AppImage releases/*.exe .
+
       - name: Upload Linux binary
         uses: actions/upload-artifact@v3
         if: ${{ contains(matrix.os, 'ubuntu') }}
